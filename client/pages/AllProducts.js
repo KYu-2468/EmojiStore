@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchProducts } from "../store/products";
@@ -119,17 +118,17 @@ const ProductType = ({ products, name, handleAddToCart }) => {
 
   return (
     <>
-      <div className="text-3xl font-bold uppercase mx-8 text-white my-2 font-sans">
+      <div className="mx-8 my-2 font-sans text-3xl font-bold text-white uppercase">
         {name}
       </div>
-      <div className="flex flex-nowrap items-center">
+      <div className="flex items-center flex-nowrap">
         {
           // If the window width is more than 600, render the sliding button, else don't render
           window.innerWidth < 600 ? (
             <></>
           ) : (
             <MdChevronLeft
-              className="absolute bg-amber-500 my-6 mx-4 rounded-xl h-28 z-50"
+              className="absolute z-50 mx-4 my-6 bg-amber-500 rounded-xl h-28"
               size={40}
               onClick={slideLeft}
             />
@@ -138,7 +137,7 @@ const ProductType = ({ products, name, handleAddToCart }) => {
 
         <div
           id={`${name}-slider`}
-          className="flex flex-row overflow-x-auto overflow-y-hidden scroll whitespace-nowrap scroll-smooth mb-8 scrollbar-hide"
+          className="flex flex-row mb-8 overflow-x-auto overflow-y-hidden scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
           {products.map((product) => (
             <Product
@@ -168,20 +167,20 @@ const ProductType = ({ products, name, handleAddToCart }) => {
 // Component for each product in the all product view
 const Product = ({ product, handleAddToCart }) => {
   return (
-    <div className="bg-slate-200 my-6 mx-6 py-4 px-4 rounded-xl h-72 md:hover:scale-110">
-      <div className="text-lg text-black font-medium text-center h-16 max-h-full whitespace-normal italic">
+    <div className="px-4 py-4 mx-6 my-6 bg-slate-200 rounded-xl h-72 md:hover:scale-110">
+      <div className="h-16 max-h-full text-lg italic font-medium text-center text-black whitespace-normal">
         {product.name}
       </div>
 
       <div>
         <Link to={`/products/${product.id}`}>
-          <div className="flex w-40 justify-center my-4">
+          <div className="flex justify-center w-40 my-4">
             <div className="text-6xl">{product.imageURL}</div>
           </div>
         </Link>
       </div>
 
-      <div className="text-center text-xl my-2">
+      <div className="my-2 text-xl text-center">
         Price: ${product.price.toFixed(2)}
       </div>
       <div className="flex flex-wrap justify-center mt-2 bg-emerald-400 rounded-2xl">
