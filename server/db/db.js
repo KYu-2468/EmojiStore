@@ -20,9 +20,26 @@ if (process.env.DATABASE_URL) {
     },
   };
 }
-console.log("DB URL: ", process.env.DATABASE_URL);
-const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
-  config
+
+// const db = new Sequelize(
+//   process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
+//   config
+// );
+console.log(
+  "DB URL: ",
+  process.env.DB,
+  process.env.USER,
+  process.env.PASSWORD,
+  process.env.HOST
 );
+const db = new Sequelize(
+  process.env.DB,
+  process.env.USER,
+  process.env.PASSWORD,
+  {
+    host: process.env.HOST,
+    dialect: "postgres",
+  }
+);
+
 module.exports = db;
