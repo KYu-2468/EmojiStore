@@ -28,13 +28,13 @@ if (process.env.DATABASE_URL) {
 console.log(
   "DB URL: ",
   process.env.DB,
-  process.env.USER,
+  process.env.USERNAME,
   process.env.PASSWORD,
   process.env.HOST
 );
 const db = new Sequelize(
   process.env.DB,
-  process.env.USER,
+  process.env.USERNAME,
   process.env.PASSWORD,
   {
     host: process.env.HOST,
