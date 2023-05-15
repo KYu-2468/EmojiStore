@@ -5,6 +5,8 @@ const stripe = require("stripe")(
   "sk_test_51LqJ7vBJqjrTBHVahTDDJY0iX3DttXrzCSC6srniSNnnsGsBNbjFBqmUj1cceicEo0JuEute6vL6v7W70aSo3BZm00ZSOBLrRH"
 );
 
+require("dotenv").config();
+
 const fs = require("fs");
 const { parse } = require("csv-parse");
 
